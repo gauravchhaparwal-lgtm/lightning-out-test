@@ -1,4 +1,32 @@
-<script type="text/javascript" async="" src="https://redseaglobal--agentforce.sandbox.my.salesforce.com/lightning/lightning.out.latest/index.iife.prod.js"></script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lightning Out Test</title>
+    <!-- Load the Lightning Out script from your org -->
+    <script src="https://redseaglobal--agentforce.sandbox.lightning.force.com/lightning/lightning.out.js"></script>
+  </head>
+  <body>
+    <h2>Salesforce Lightning Out Test</h2>
+    <div id="lightning"></div>
 
-<lightning-out-application components="c-cvp-ai-agent"></lightning-out-application>
-<c-cvp-ai-agent></c-cvp-ai-agent>
+    <script>
+      // Initialize Lightning Out
+      $Lightning.use(
+        "c:MyLightningOutApp", // The name of your Lightning Out app
+        function () {
+          // Create the component once the app is loaded
+          $Lightning.createComponent(
+            "c:cvpAiAgent", // Your Aura/LWC wrapper component name
+            {},             // Any attributes to pass
+            "lightning",    // The ID of the container div
+            function (cmp) {
+              console.log("Component created:", cmp);
+            }
+          );
+        },
+        "https://redseaglobal--agentforce.sandbox.lightning.force.com" // Your org domain
+      );
+    </script>
+  </body>
+</html>
