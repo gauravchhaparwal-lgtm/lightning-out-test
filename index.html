@@ -1,31 +1,27 @@
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Lightning Out Test</title>
-    <!-- Load the Lightning Out script from your org -->
-    <script src="https://redseaglobal--agentforce.sandbox.my.site.com/Test/lightning/lightning.out.js"></script>
-  </head>
-  <body>
-    <h2>Salesforce Lightning Out Test</h2>
-    <div id="lightning"></div>
-
-    <script>
-      // Initialize Lightning Out
-      $Lightning.use(
-        "c:MyLightningOutApp", // The name of your Lightning Out app
-        function () {
-          // Create the component once the app is loaded
-          $Lightning.createComponent(
-            "c:cvpAIAgent", // Your Aura/LWC wrapper component name
-            {},             // Any attributes to pass
-            "lightning",    // The ID of the container div
-            function (cmp) {
-              console.log("Component created:", cmp);
-            }
-          );
-        },
-        "https://redseaglobal--agentforce.sandbox.my.site.com/Test"
-      );
-    </script>
-  </body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <h1>My External Page</h1>
+        <div id="lightning-out"></div>
+        <script src="https://redseaglobal--agentforce.sandbox.my.site.com/Test/lightning/lightning.out.js"></script>
+        <script>
+            $Lightning.use(
+                'c:MyLightningOutApp', // name of the Lightning Out (beta) app
+                function () { // callback after the framework and app load
+                    $Lightning.createComponent(
+                        'c:cvpAIAgent', // top-level component of the Lightning Out (beta) app
+                        {}, // attributes to set on the component
+                        'lightning-out', // DOM element ID where the component is inserted
+                        function (cmp) { // callback after the component loads
+                            console.log('The component was created.');
+                        }
+                    );
+                },
+                'https://redseaglobal--agentforce.sandbox.my.site.com/Test' // Experience Cloud site endpoint
+            );
+        </script>
+    </body>
 </html>
