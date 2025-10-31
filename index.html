@@ -4,12 +4,10 @@
     <meta charset="UTF-8" />
     <title>Lightning Out Test</title>
     <!-- Load the Lightning Out script from your org -->
-    <script src="https://redseaglobal--agentforce.sandbox.my.site.com/rsgagent/lightning/lightning.out.js"></script>
+    <script src="https://redseaglobal--agentforce.sandbox.my.site.com/Testvforcesite/lightning/lightning.out.js"></script>
   </head>
   <body>
-    <h2>Salesforce Lightning Out Test</h2>
     <div id="lightning"></div>
-
     <script>
       // Initialize Lightning Out
       $Lightning.use(
@@ -17,7 +15,7 @@
         function () {
           // Create the component once the app is loaded
           $Lightning.createComponent(
-            "c:cvpChatAgent", // Your Aura/LWC wrapper component name
+            "c:poc_RealTimeVoiceAssistant", // Your Aura/LWC wrapper component name
             {},             // Any attributes to pass
             "lightning",    // The ID of the container div
             function (cmp) {
@@ -25,7 +23,7 @@
             }
           );
         },
-        "https://redseaglobal--agentforce.sandbox.my.site.com/rsgagent"
+        "https://redseaglobal--agentforce.sandbox.my.site.com/Testvforcesite/lightning/lightning.out.js"
       );
     </script>
   </body>
